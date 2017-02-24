@@ -9,3 +9,7 @@
 1. With Dispatch Queues
 2. With Semaphores
 3. With Dispatch Barriers 
+
+# PMap
+
+*Challenge*: Implement pmap for Swift.
