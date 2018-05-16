@@ -9,5 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // GOTO: Unit Tests Target
+    override func viewDidLoad() {
+        
+    }
 }

@@ -22,6 +22,22 @@ class DispatchQueueUnitTests: XCTestCase {
     
     func testDispatchQueueReadersWritersProblem() {
         // solve with dispatch queues
+        let expectation = self.expectation(description: "com.makeschool.expectation")
+        
+        let dispatchGroup = DispatchGroup()
+        
+        for _ in 0..<iterations {
+            print("read: \(user.age)")
+                self.user.age += 1
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            expectation.fulfill()
+            
+            XCTAssertEqual(self.iterations, self.user.age)
+        }
+        
+        waitForExpectations(timeout: 15, handler: nil)
     }
     
 }

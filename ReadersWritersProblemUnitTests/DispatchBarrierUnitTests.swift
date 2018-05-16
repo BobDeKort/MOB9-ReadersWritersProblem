@@ -22,6 +22,19 @@ class DispatchBarrierUnitTests: XCTestCase {
     
     func testDispatchBarrierReadersWritersProblem() {
         // solve with dispatch barriers
+        let expectation = self.expectation(description: "com.makeschool.expectation")
+
+        for _ in 0..<iterations {
+            print("read: \(user.age)")
+            
+//            self.user.age += 1
+            self.user.increaseAge()
+        }
+        
+        XCTAssertEqual(self.iterations, self.user.age)
+        print("It is: \(self.iterations, self.user.age)")
+        expectation.fulfill()
+        
+        waitForExpectations(timeout: 10, handler: nil)
     }
-    
 }
